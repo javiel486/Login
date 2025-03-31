@@ -1,83 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset"UTF-8">
-   <meta name="viewport"content="width=device-width,initial-scale=1.0">
-   <title>DARK md LOGIN PAGE</title>
-   <style>
-   body {
-   margin: 0;
-   font-family: sans-serif;
-   background-image: url('https://i.ibb.co/N8Z276c/images-34.jpg');
-   background-size: cover;
-   background-position: center;
-   display: flex;
-   justify-content: center;
-   align-items: centre;
-   min-height: 100vh;
-  }
-   
-  .login-container {
-   background-color: rgba(255, 255, 255, 0.8);
-   padding: 2rem;
-   border-radius: 8px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-   width: 300px;
-  }
-  
-  .login-container h2 {
-  text align: center;
-  margin-bottom: 20px;
-  }
-  .login-container input[type="text"],
-  .login-container input[type="password"],
-  .login-container button{
-  width: calc(100% - 22px);
-  padding: 10px;
-  margin-bottom: 10px
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border- box;
-  }
-  
-  .login-container button {
-  background-color: transparent;
-  color: white;
-  border: none;
-  cursor: pointer;
-  }
-  
-  .login-container button:hover {
-  background-color: blue;
-  }
-  .error-message {
-  color: red;
-  text-align: center;
-  margin-top: 10px;
-  }
-  </style>
-  </head>
-  <body>
-      
-  <div class="login-container">
-  <h2>Login</h2>
-  <input type="text" id="username"
-  placeholder="Username" required>
-  <input type="password" id="password"
-  placeholder="Password" required>
-  <button onclick="validateLogin()">Login</button>
-  <div id="error" class="error-message"></div>
-  </div>
-  
-  <script>
-  function validateLogin() {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-  const errorDiv = document.getElementById('error');
-  
-  if (username === 'user' && password === 'password') {
-  errorDiv.textContent = '';
-  errorDiv.textContent
-  errorDiv.textContent = 'Invalid username or password.';
-  }
-}
-  </body>
-  </html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popkid Xtech Pairing Site Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #header {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 50px 0;
+            animation: fadeIn 2s ease-in-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            width: 300px;
+        }
+
+        #login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        #login-container input:focus{
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        #login-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 95%;
+        }
+
+        #login-container button:hover {
+            background-color: #3e8e41;
+        }
+
+        #audio-player {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <video id="video-background" autoplay muted loop>
+        <source src="https://files.catbox.moe/lfpvpc.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div id="header">
+        <h1>Popkid Xtech Pairing Site</h1>
+    </div>
+
+    <div id="login-container">
+        <h2>POPKID SITE</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">LOGIN</button>
+    </div>
+
+    <div id="audio-player">
+        <audio controls loop>
+            <source src="https://files.catbox.moe/kxdej4.m4a" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Insecure login. Do not use in production.
+            //This allows any username and password to pass.
+            window.location.href = "https://sesssion-65d966ff6257.herokuapp.com/"; // Replace with your website URL
+
+        }
+
+    </script>
+
+</body>
+</html>
